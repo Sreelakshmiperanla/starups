@@ -1,0 +1,386 @@
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+    background: black;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+ #particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Lower z-index so it is behind other elements */
+}
+
+/* Ensure images are above the particles */
+img {
+  position: relative;
+  z-index: 10; /* Higher z-index so images are above the particles */
+}
+
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    /* background-color: #d9b5dd; */
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .brand-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #5e35b1;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+  }
+  
+  .nav-links a:hover {
+    color: #91329e;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .nav-links a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: #91329e;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  .signup-button {
+    text-decoration: none;
+    background-color: #5e35b1;
+    color: #5e35b1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .signup-button:hover {
+    background-color: black;
+    border: 3px solid #5e35b1;
+    color: #5e35b1;
+  }
+  
+  #home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 70vh;
+  
+  }
+  
+  .text-container {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .text-container h1 {
+    font-size: 48px;
+    margin: 0;
+  }
+  
+  .welcome-text {
+    color: rgb(252, 251, 251);
+  }
+  
+  .starups-text {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .starups-text-content {
+    color: #5e35b1 !important;
+    /* background: linear-gradient(to right, rgb(206, 165, 205), #893494);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    */
+    font-size:75px;
+    font-weight: bold; 
+  }
+  
+  .emoji {
+    font-size: 1em;
+    color: inherit;
+  }
+  
+  .text-container p {
+    font-size: 24px;
+    margin: 10px 0;
+    z-index: 1;
+  }
+  
+  .join-now-button {
+    display: inline-block;
+    text-decoration: none;
+    /* background-color: #5e35b1; */
+    color: #5e35b1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 70px;
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+  
+  .join-now-button:hover {
+    background-color: black;
+    border: 3px solid #5e35b1;
+    color: #5e35b1;
+  }
+  
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70%;
+  }
+  
+  .home-image {
+    width: 70%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+     body{
+      overflow-x: hidden;
+     }
+    .text-container,
+    .image-container {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .text-container {
+      margin-bottom: 20px;
+    }
+    
+    .home-image {
+      width: 70%;
+    }
+  }
+  
+  /* Scroll effects and animations */
+  .animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .values-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .value-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+/* Responsive Design for tablet and smaller devices */
+  @media (max-width: 1024px) {
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+      background: black;
+      position: relative;
+      overflow-y:scroll;
+      overflow-x: hidden;
+    }
+    .text-container,
+    .image-container {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .text-container {
+      margin-bottom: 20px;
+      padding: 0 15px; /* Add padding for better spacing */
+    }
+  
+    .home-image {
+      width: 80%;
+      margin: 0 auto;
+    }
+  
+    nav {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  
+    .signup-button {
+      margin-top: 10px;
+      padding: 10px 30px;
+    }
+  }
+  
+  /* Responsive Design for mobile devices */
+  @media (max-width: 768px) {
+    body{
+      overflow-x: hidden;
+    }
+    .text-container h1 {
+      font-size: 36px;
+    }
+  
+    .text-container p {
+      font-size: 20px;
+    }
+  
+    .starups-text-content {
+      font-size: 50px;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .nav-links a {
+      font-size: 18px;
+    }
+  
+    .join-now-button,
+    .signup-button {
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+    }
+  
+    nav {
+      padding: 10px;
+    }
+  
+    .home-image {
+      width: 90%;
+    }
+  
+    #home {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .values-content {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .value-item {
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Responsive Design for smaller mobile devices */
+  @media (max-width: 480px) {
+    body{
+      overflow-x: hidden;
+    }
+    .text-container h1 {
+      font-size: 28px;
+    }
+  
+    .text-container p {
+      font-size: 16px;
+    }
+  
+    .starups-text-content {
+      font-size: 40px;
+    }
+  
+    .nav-links a {
+      font-size: 16px;
+    }
+  
+    .join-now-button,
+    .signup-button {
+      font-size: 14px;
+      padding: 8px 0;
+    }
+  
+    .home-image {
+      width: 100%;
+    }
+  
+    #home {
+      padding: 15px;
+    }
+  
+    .values-content {
+      gap: 5px;
+    }
+  
+    .value-item {
+      margin-bottom: 15px;
+    }
+  }
